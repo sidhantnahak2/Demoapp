@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    height: 100vh;
+    background-color: green;
+}
+
+header nav {
+    padding: 0.5rem 1rem;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    position: fixed;
+    width: 100%;
+
+}
+
+nav>ul li {
+    display: inline-block;
+    margin: 0 0.5rem;
+
+
+}
+nav>a{
+    font-size: 1.4rem;
+}
+
+.down_bar {
+    padding: 1rem 2rem;
+    position: fixed;
+    right: 10px;
+    top: 60px;
+    border: 3px solid black;
+}
+
+.down_bar li {
+    list-style: none;
+    margin: 0.5rem;
+}
+
+.down_bar li a {
+    padding: 0.5rem;
+}
+
+nav ul li a {
+    padding: 0.5rem 1rem;
+    border-radius: 14px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    transition: .2s ease-in;
+    font-weight: 600;
+    font-size: 1.1rem;
+
+}
+
+.active,
+.link:hover {
+    background-color: white;
+    color: black;
+}
+
+#bar_icon {
+    display: none;
+}
+
+.down_bar {
+    display: none;
+}
+
+.open {
+    display: block;
+}
+#data-list i{
+    transition: .2s;
+}
+/* #data-list:hover i{
+    transform: rotate(180deg);
+} */
+
+
+.service_bar ul li{
+    list-style: none;
+}
+.service_bar.active{
+    display: block;
+}
+.service_bar{
+    padding: 0.5rem 3rem;
+    background-color: antiquewhite;
+    position: fixed;
+    right: 31%;
+    top: 10%;
+    color: black;
+    transition: 1.2s ease-in;
+    display: none;
+
+}
+.service_bar>ul{
+    display: flex;
+    flex-direction: column;
+}
+.service_bar>ul>li{
+    margin: 0.3rem 0;
+}
+.service_bar ul li a{
+color: black;
+    padding: 0.5rem 1rem;
+    border-radius: 14px;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+    text-decoration: none;
+    list-style: none;
+    transition: .2s ease-in;
+    font-weight: 600;
+    font-size: 1.1rem;
+
+}
+@media(max-width:700px) {
+    #bar_icon {
+        display: block;
+    }
+
+    #myDIV {
+        display: none;
+    }
+    .down_bar ul li{
+        color: yellow;
+        text-align: center;
+    }
+}
+
+@media(max-width:300px) {
+    .open {
+        left: 10px;
+        width: auto;
+    }
+}

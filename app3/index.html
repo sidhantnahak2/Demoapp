@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="index.css" class="src">
+
+</head>
+
+
+<body>
+    <div>
+        <header>
+            <nav>
+                <a style="color: white;font-size:x-large;text-decoration:none" href="/">DemoApp</a>
+                <ul id="myDIV">
+                    <li id="data-list" style="margin-right: 4rem;padding-right: 0;cursor: pointer;"><a class="">Get Informations</a>
+                     
+                         <i id="down_arrow"
+                            class="fa-solid fa-sort-down"></i></li>
+                    <li><a class="link active">Home</a></li>
+                    <li><a href="/about" class="link ">About</a></li>
+                    <li><a href="/services" class="link ">Services</a></li>
+                    <li><a href="/contact" class="link ">Contact</a></li>
+
+                </ul>
+                <div class="service_bar">
+                    <ul>
+                        <li><a href="/" class="link3">Home</a></li>
+                        <li><a href="/about" class="link3">About</a></li>
+                        <li><a href="/services" class="link3">Services</a></li>
+                        <li><a href="/contact" class="link3">Contact</a></li>
+                        <li><a href="/logout" class="link3">Logout</a></li>
+    
+                    </ul>
+                </div>
+                <i onclick="handleClick()" id="bar_icon" style="color: red;" class="fa-sharp fa-solid fa-bars"></i>
+
+                <div class="down_bar">
+
+
+                    <ul>
+                        <li><a href="/" class="link">Home</a></li>
+                        <li><a href="/about" class="link2">About</a></li>
+                        <li><a href="/services" class="link2">Services</a></li>
+                        <li><a href="/contact" class="link2">Contact</a></li>
+                        <li><a href="/logout" class="link">Logout</a></li>
+
+                    </ul>
+                </div>
+
+              
+            </nav>
+
+        </header>
+        <i onclick="handleClick()" id="bar_icon" style="color: red;" class=""></i>
+
+
+    </div>
+
+</body>
+<script>
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("link");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function (e) {
+            e.preventDefault()
+            var current = document.querySelector("#myDIV .active");
+            current.classList.remove("active")
+            //current[0].className = current[0].className.replace(" active", "");
+            this.classList.add("active");
+            //this.className += " active";
+        });
+    }
+
+    function handleClick() {
+        let elem = document.querySelector(".down_bar")
+        elem.classList.toggle("open");
+        const isopen = elem.classList.contains("open")
+        if (isopen) {
+            document.getElementById("bar_icon").classList = "fa-sharp fa-solid fa-xmark"
+        } else {
+            document.getElementById("bar_icon").classList = "fa-sharp fa-solid fa-bars"
+
+        }
+
+    }
+
+    let data_list=document.getElementById("data-list")
+    data_list.addEventListener("click",function(e){
+        let elem=document.getElementsByClassName("service_bar")
+        let icon=document.getElementById("down_arrow")
+        elem[0].classList.toggle("active")
+        const isopen=elem[0].classList.contains("active")
+        if(isopen){
+            icon.style.rotate="180deg"
+            paad
+        }else{
+            icon.style.rotate="360deg"
+        }
+
+        
+        
+    })
+    
+</script>
+
+</html>
