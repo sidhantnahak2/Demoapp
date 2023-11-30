@@ -3,10 +3,10 @@ const sql = require('mssql/msnodesqlv8')
 
 exports.Inverter1Data = async (req, res) => {
 
-    sql.query("SELECT * from Inverter1GenerationDataFinal", (err, result, field) => {
+    sql.query("SELECT top 5 * from Inverter1GenerationDataFinal", (err, result, field) => {
         if (err) console.log(err)
         else {
-            res.status(200).json({ data: result["recordsets"][0][0] })
+            res.status(200).json({ data: result.recordsets [0]})
         }
     })
 
