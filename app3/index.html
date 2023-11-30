@@ -17,44 +17,27 @@
     <div>
         <header>
             <nav>
-                <a style="color: white;font-size:x-large;text-decoration:none" href="/">DemoApp</a>
+                <a id="home" style="color: white;font-size:x-large;text-decoration:none" href="/">DemoApp</a>
                 <ul id="myDIV">
-                    <li id="data-list" style="margin-right: 4rem;padding-right: 0;cursor: pointer;"><a class="">Get Informations</a>
-                     
-                         <i id="down_arrow"
-                            class="fa-solid fa-sort-down"></i></li>
                     <li><a class="link active">Home</a></li>
                     <li><a href="/about" class="link ">About</a></li>
                     <li><a href="/services" class="link ">Services</a></li>
                     <li><a href="/contact" class="link ">Contact</a></li>
 
                 </ul>
-                <div class="service_bar">
-                    <ul>
-                        <li><a href="/" class="link3">Home</a></li>
-                        <li><a href="/about" class="link3">About</a></li>
-                        <li><a href="/services" class="link3">Services</a></li>
-                        <li><a href="/contact" class="link3">Contact</a></li>
-                        <li><a href="/logout" class="link3">Logout</a></li>
-    
-                    </ul>
-                </div>
                 <i onclick="handleClick()" id="bar_icon" style="color: red;" class="fa-sharp fa-solid fa-bars"></i>
-
                 <div class="down_bar">
-
-
                     <ul>
-                        <li><a href="/" class="link">Home</a></li>
+                        <li><a href="/" class="link2 active2">Home</a></li>
                         <li><a href="/about" class="link2">About</a></li>
                         <li><a href="/services" class="link2">Services</a></li>
                         <li><a href="/contact" class="link2">Contact</a></li>
-                        <li><a href="/logout" class="link">Logout</a></li>
+                        <li><a href="/logout" class="link2">Logout</a></li>
 
                     </ul>
                 </div>
 
-              
+
             </nav>
 
         </header>
@@ -65,6 +48,11 @@
 
 </body>
 <script>
+
+  let elem=document.getElementById("home")
+  elem.addEventListener("click",function(e){
+    e.preventDefault();
+  })
     var header = document.getElementById("myDIV");
     var btns = header.getElementsByClassName("link");
     for (var i = 0; i < btns.length; i++) {
@@ -75,6 +63,21 @@
             //current[0].className = current[0].className.replace(" active", "");
             this.classList.add("active");
             //this.className += " active";
+        });
+    }
+
+    var btns2 = document.querySelectorAll(".link2");
+
+    for (var i = 0; i < btns2.length; i++) {
+        btns2[i].addEventListener("click", function (e) {
+            e.preventDefault()
+            var current = document.querySelector(".down_bar .active2");
+            console.log(current)
+
+            current.classList.remove("active2")
+            //current[0].className = current[0].className.replace(" active2", "");
+            this.classList.add("active2");
+            // this.className += " active2";
         });
     }
 
@@ -91,23 +94,25 @@
 
     }
 
-    let data_list=document.getElementById("data-list")
-    data_list.addEventListener("click",function(e){
-        let elem=document.getElementsByClassName("service_bar")
-        let icon=document.getElementById("down_arrow")
-        elem[0].classList.toggle("active")
-        const isopen=elem[0].classList.contains("active")
-        if(isopen){
-            icon.style.rotate="180deg"
-            paad
-        }else{
-            icon.style.rotate="360deg"
+
+    function myfunc() {
+        let width = window.innerWidth;
+        if (width > 500) {
+            let elem = document.querySelector(".down_bar")
+            elem.classList.toggle("open");
+            const isopen = elem.classList.contains("open")
+            if (isopen) {
+                elem.classList.remove("open");
+                document.getElementById("bar_icon").classList = "fa-sharp fa-solid fa-bars"
+            }
         }
 
-        
-        
-    })
-    
+    }
+    window.onresize = myfunc;
+    window.onload = myfunc;
+
+
+
 </script>
 
 </html>
